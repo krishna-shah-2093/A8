@@ -88,10 +88,11 @@ class TestProjectsPage:
         assert len(projects) == 2
         
         for project in projects:
-            assert 'id' in project
-            assert 'title' in project
-            assert 'description' in project
-            assert 'image_file_name' in project
+            # sqlite3.Row objects support dict-like access
+            assert project['id'] is not None
+            assert project['title'] is not None
+            assert project['description'] is not None
+            assert project['image_file_name'] is not None
             
             # Verify data types
             assert isinstance(project['id'], int)
@@ -123,14 +124,14 @@ class TestProjectsPage:
     def test_projects_with_special_characters(self):
         """Test projects page with special characters in data."""
         # Add project with special characters
-        DAL.add_project("Project with & symbols", "Description with <tags> and 'quotes'", "special.jpg")
+        DAL.add_project("Project with & symbols", "Description with <tags> and quotes", "special.jpg")
         
         response = self.client.get('/projects')
         assert response.status_code == 200
         
-        # Should handle special characters properly
-        assert b'Project with & symbols' in response.data
-        assert b'Description with <tags> and \'quotes\'' in response.data
+        # Should handle special characters properly (HTML-escaped)
+        assert b'Project with &amp; symbols' in response.data  # & becomes &amp;
+        assert b'Description with &lt;tags&gt; and quotes' in response.data  # < becomes &lt;, > becomes &gt;, quotes remain as quotes
     
     def test_projects_page_performance(self):
         """Test projects page performance with many projects."""

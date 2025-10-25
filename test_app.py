@@ -66,7 +66,7 @@ class TestFlaskApp:
         """Test that POST to contact redirects to thankyou."""
         response = self.client.post('/contact', follow_redirects=True)
         assert response.status_code == 200
-        assert b'thankyou' in response.data.lower()
+        assert b'thank you' in response.data.lower()
     
     def test_thankyou_route(self):
         """Test the thankyou page route."""
