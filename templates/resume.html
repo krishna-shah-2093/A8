@@ -1,0 +1,162 @@
+{% extends "base.html" %}
+
+{% block content %}
+		<!-- Resume Header -->
+		<header class="resume-header">
+			<h1 class="resume-name">KRISHNA K. SHAH</h1>
+			<div class="resume-contact">
+				ks160@iu.edu | 812-391-1233 | 
+				<a href="https://www.linkedin.com/in/krishna-shah-20/" target="_blank" rel="noopener" class="linkedin-link">
+					<svg class="linkedin-logo" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+						<path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+					</svg>
+					LinkedIn
+				</a>
+				| Bloomington, IN
+			</div>
+			<div style="text-align: center; margin-top: var(--space-4);">
+				<a class="btn" href="{{ url_for('static', filename='assets/Krishna_Shah_Resume.pdf') }}" download target="_blank">Download Resume</a>
+			</div>
+		</header>
+
+		<!-- Resume Content -->
+		<div class="resume-content">
+			<section class="resume-section">
+				<h2 class="resume-section-title">EDUCATION</h2>
+				
+				<div class="resume-item">
+					<div class="resume-item-header">
+						<div class="resume-item-title">Indiana University, Kelley School of Business – Bloomington, IN</div>
+						<div class="resume-item-date">December 2026</div>
+					</div>
+					<div class="resume-item-subtitle">
+						<span>Master of Science in Information Systems</span>
+						<span class="resume-gpa"><strong>GPA: 4.00/4.00</strong></span>
+					</div>
+					<ul class="resume-bullets">
+						<li>Graduate Assistantship: Resolve assigned tickets related to back-office operations for IT Services at Kelley</li>
+						<li>Women in Tech (WiT) Club, Co-Director of Events: Organize logistics for networking and professional development events</li>
+						<li>Certificate in Business Foundations (Summer 2025): Courses in strategy, finance, accounting, operations, marketing</li>
+						<li>Coursework: Enterprise Platforms(ERP), Cloud and Platform Architecture, Product Management, Agility, Processes and Automation, IT Governance, Risk, and Controls, Data Analytics</li>
+					</ul>
+				</div>
+
+				<div class="resume-item">
+					<div class="resume-item-header">
+						<div class="resume-item-title">Charutar Vidya Mandal University, G H Patel College of Engineering & Technology – Gujarat, India</div>
+						<div class="resume-item-date">May 2025</div>
+					</div>
+					<div class="resume-item-subtitle">
+						<div>
+							<div>Bachelor of Technology in Computer Science and Design</div>
+							<div>Minor: Internet of Things (IoT)</div>
+						</div>
+						<span class="resume-gpa"><strong>GPA: 3.91/4.00</strong></span>
+					</div>
+					<ul class="resume-bullets">
+						<li>Academic Achiever Medal: Awarded for highest CGPA across all engineering disciplines</li>
+						<li>Student Convenor, Annual Day 2025: Selected for leadership; led planning and logistics for the college's flagship event</li>
+						<li>Research: Co-authored and presented a machine learning literature review; co-authored a published deep learning paper</li>
+					</ul>
+				</div>
+			</section>
+
+			<section class="resume-section">
+				<h2 class="resume-section-title">EXPERIENCE</h2>
+				
+				<div class="resume-item">
+					<div class="resume-item-header">
+						<div class="resume-item-title">A1Brains Infotech – Ahmedabad, India</div>
+						<div class="resume-item-date">January 2025 – April 2025</div>
+					</div>
+					<div class="resume-item-subtitle">Software Engineering Intern</div>
+					<ul class="resume-bullets">
+						<li>Conducted UI/UX planning and requirement analysis for a MERN stack recruitment platform, streamlining the development process by defining system architecture and user flows</li>
+						<li>Implemented authentication and job management modules, conducted localization QA, and documented APIs in collaboration with cross-functional teams to accelerate delivery and enhance platform performance</li>
+					</ul>
+				</div>
+
+				<div class="resume-item">
+					<div class="resume-item-header">
+						<div class="resume-item-title">Beta Code Technologies Pvt Ltd – Remote</div>
+						<div class="resume-item-date">June 2024</div>
+					</div>
+					<div class="resume-item-subtitle">Web Development Intern</div>
+					<ul class="resume-bullets">
+						<li>Developed reservations and feedback modules for a full-stack Restaurant Management System (MERN), improving order handling and enhancing operational efficiency</li>
+						<li>Aligned frontend and backend development across agile teams, ensuring consistent data flow and cohesive user experience</li>
+					</ul>
+				</div>
+			</section>
+
+			<section class="resume-section">
+				<h2 class="resume-section-title">LEADERSHIP</h2>
+				
+				<div class="resume-item">
+					<div class="resume-item-header">
+						<div class="resume-item-title">Women Empowerment Cell (WEC) – GCET, Gujarat, India</div>
+						<div class="resume-item-date">April 2022 – May 2025</div>
+					</div>
+					<div class="resume-item-subtitle">Core Committee Member</div>
+					<ul class="resume-bullets">
+						<li>Led planning and execution for 6+ empowerment and community outreach events, boosting flagship attendance by 10% through targeted engagement strategies</li>
+						<li>Mentored 7 junior members to ensure smooth event execution and build a strong internal pipeline for future leadership</li>
+					</ul>
+				</div>
+
+				<div class="resume-item">
+					<div class="resume-item-header">
+						<div class="resume-item-title">Imaze '23 (Annual Tech Fest) – GCET, Gujarat, India</div>
+						<div class="resume-item-date">December 2023</div>
+					</div>
+					<div class="resume-item-subtitle">Technical Event Lead</div>
+					<ul class="resume-bullets">
+						<li>Directed a 7-member team to host a 60+ participant technical competition, coordinating across committees to ensure seamless execution</li>
+					</ul>
+				</div>
+			</section>
+
+			<section class="resume-section">
+				<h2 class="resume-section-title">ACADEMIC PROJECTS</h2>
+				
+				<div class="resume-item">
+					<div class="resume-item-header">
+						<div class="resume-item-title">Potato Leaf Disease Detection using Deep Learning</div>
+						<div class="resume-item-date">March 2024 – April 2024</div>
+					</div>
+					<ul class="resume-bullets">
+						<li>Built a CNN model in Python for early disease detection with 95.83% accuracy, surpassing pre-trained models</li>
+						<li>Led end-to-end project execution, and translated research findings into a diagnostic tool for early agricultural intervention</li>
+					</ul>
+				</div>
+
+				<div class="resume-item">
+					<div class="resume-item-header">
+						<div class="resume-item-title">IoT-Based Water Quality Monitoring</div>
+						<div class="resume-item-date">April 2024</div>
+					</div>
+					<ul class="resume-bullets">
+						<li>Designed a real-time IoT system with Arduino, sensors, and ThingSpeak to monitor water quality (pH, turbidity) on a cloud dashboard, streaming data every 30 seconds</li>
+						<li>Aided in dataset collection and sensor/Arduino integration for the team, enabling smart environmental monitoring</li>
+					</ul>
+				</div>
+			</section>
+
+			<section class="resume-section">
+				<h2 class="resume-section-title">TECHNICAL</h2>
+				<ul class="resume-bullets">
+					<li><strong>Programming & Development:</strong> Python, C/C++, Java, JavaScript, MongoDB, Express, React, Node.js, HTML/CSS</li>
+					<li><strong>Design & Prototyping:</strong> Figma, Design Thinking, Wireframing</li>
+					<li><strong>Data Analysis & Visualization:</strong> SQL, Excel, Pandas (Python)</li>
+				</ul>
+			</section>
+
+			<section class="resume-section">
+				<h2 class="resume-section-title">ADDITIONAL</h2>
+				<p>Board/Card Games | Art | Concerts</p>
+			</section>
+		</div>
+{% endblock %}
+
+
+

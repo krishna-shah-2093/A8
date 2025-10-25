@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<meta name="description" content="Portfolio of Krishna K. Shah — MSIS @ IU Kelley. AI, data, and design projects, resume, and contact." />
+	<title>Krishna K. Shah | MSIS @ IU Kelley — Portfolio</title>
+	<link rel="stylesheet" href="{{ url_for('css_file', filename='styles.css') }}" />
+</head>
+<body>
+	<a class="skip-link" href="#main">Skip to content</a>
+
+	<header class="site-header">
+		<!-- a11y: Keep header minimal; brand/logo can be added later with alt text -->
+	</header>
+
+	<nav class="nav" aria-label="Primary">
+		<ul class="nav__list">
+			<li><a href="{{ url_for('home') }}">Home</a></li>
+			<li><a href="{{ url_for('about') }}">About</a></li>
+			<li><a href="{{ url_for('resume') }}">Resume</a></li>
+			<li><a href="{{ url_for('projects') }}">Projects</a></li>
+			<li><a href="{{ url_for('form') }}">Add Project</a></li>
+			<li><a href="{{ url_for('contact') }}">Contact</a></li>
+		</ul>
+	</nav>
+
+	<main id="main" class="container">
+		{% block content %}{% endblock %}
+	</main>
+
+	<footer class="footer">
+		<p>© <span id="year"></span> Krishna K. Shah • <a href="https://github.com/krishna-shah-2093/personal_website_flask">GitHub repo</a></p>
+	</footer>
+
+	<!-- Minimal progressive enhancement: current year injection; keeps HTML valid without JS -->
+	<script>
+		(function(){
+			var y = new Date().getFullYear();
+			var el = document.getElementById('year');
+			if (el) { el.textContent = y; }
+		})();
+	</script>
+	{% block scripts %}{% endblock %}
+</body>
+</html>

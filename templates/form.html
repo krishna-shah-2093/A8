@@ -1,0 +1,101 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="section">
+	<h1 class="h1">Add New Project</h1>
+	<p class="lead" style="margin-top: var(--space-3);">Share your latest work and showcase your skills.</p>
+	
+	<form method="POST" style="margin-top: var(--space-4); max-width: 600px;">
+		<div class="form-group">
+			<label for="title">Project Title</label>
+			<input id="title" name="title" type="text" required aria-invalid="false" autocomplete="off" />
+			<p class="helper-text">Enter a descriptive title for your project.</p>
+			<p class="error" id="error-title" role="alert" aria-live="polite"></p>
+		</div>
+		
+		<div class="form-group" style="margin-top: var(--space-4);">
+			<label for="description">Project Description</label>
+			<textarea id="description" 
+					  name="description" 
+					  required 
+					  rows="5" 
+					  aria-invalid="false" 
+					  placeholder="Describe your project, technologies used, challenges faced, and outcomes achieved..."></textarea>
+			<p class="helper-text">Provide a detailed description of your project, including technologies, challenges, and results.</p>
+			<p class="error" id="error-description" role="alert" aria-live="polite"></p>
+		</div>
+		
+		<div class="form-group" style="margin-top: var(--space-4);">
+			<label for="image_file_name">Image File Name</label>
+			<input id="image_file_name" 
+				   name="image_file_name" 
+				   type="text" 
+				   placeholder="e.g., project-screenshot.png" 
+				   required 
+				   aria-invalid="false" 
+				   autocomplete="off" />
+			<p class="helper-text">Enter the exact filename of your project image.</p>
+			<p class="error" id="error-image_file_name" role="alert" aria-live="polite"></p>
+		</div>
+		
+		<div style="margin-top: var(--space-5);">
+			<button type="submit" class="btn">Add Project</button>
+		</div>
+	</form>
+	
+	<div style="margin-top: var(--space-4); padding: var(--space-3); background: var(--surface); border-radius: 8px; border-left: 4px solid var(--primary);">
+		<p style="margin: 0; font-size: 0.9em; color: var(--text);">
+			<strong>📁 Image Instructions:</strong> Place your project images in the <code>static/images/</code> folder and enter the exact filename above. Supported formats: PNG, JPG, JPEG, GIF.
+		</p>
+	</div>
+</section>
+{% endblock %}
+
+{% block scripts %}
+<script>
+	(function(){
+		var form = document.querySelector('form');
+		if (!form) return;
+		
+		var fields = {
+			title: document.getElementById('title'),
+			description: document.getElementById('description'),
+			image_file_name: document.getElementById('image_file_name')
+		};
+
+		function setError(input, message) {
+			var err = document.getElementById('error-' + input.id);
+			if (err) err.textContent = message || '';
+			input.setAttribute('aria-invalid', message ? 'true' : 'false');
+		}
+
+		function clearAllErrors() {
+			Object.keys(fields).forEach(function(key){ 
+				setError(fields[key], ''); 
+			});
+		}
+
+		form.addEventListener('submit', function(e){
+			e.preventDefault();
+			clearAllErrors();
+
+			var invalids = [];
+			Object.keys(fields).forEach(function(key){
+				var input = fields[key];
+				if (!input.checkValidity()) {
+					invalids.push(input);
+					setError(input, input.validationMessage);
+				}
+			});
+
+			if (invalids.length) {
+				invalids[0].focus();
+				return;
+			}
+
+			// If validation passes, submit the form
+			form.submit();
+		});
+	})();
+</script>
+{% endblock %}

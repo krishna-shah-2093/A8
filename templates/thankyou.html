@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block content %}
+		<section class="main-hero section" aria-labelledby="thanks-heading">
+			<h1 id="thanks-heading" class="h1">Thank you!</h1>
+			<div id="thanks-live" class="visually-hidden" role="status" aria-live="polite"></div>
+			<p class="lead" style="margin-top: var(--space-3);">Your message was submitted successfully. I’ll get back to you soon.</p>
+			<div class="flex" style="margin-top: var(--space-4); flex-wrap: wrap;">
+				<a class="btn" href="{{ url_for('home') }}">Back to Home</a>
+				<!-- <a class="btn btn--secondary" href="projects.html">View Projects</a> -->
+			</div>
+			<p class="helper-text" style="margin-top: var(--space-3);">If urgent, please reach out via email or LinkedIn from the Contact page. <!-- TODO: personalize --></p>
+		</section>
+{% endblock %}
+
+{% block scripts %}
+<script>
+	(function(){
+		var y = new Date().getFullYear();
+		var el = document.getElementById('year');
+		if (el) { el.textContent = y; }
+	})();
+
+	// Progressive enhancement: personalize heading if first name available
+	(function(){
+		try {
+			var first = sessionStorage.getItem('contactFirstName') || '';
+			var last = sessionStorage.getItem('contactLastName') || '';
+			if (first) {
+				var heading = document.getElementById('thanks-heading');
+				var live = document.getElementById('thanks-live');
+				var name = first + (last ? ' ' + last : '');
+				heading.textContent = 'Thank you, ' + name + '!';
+				if (live) { live.textContent = 'Confirmation updated for ' + name + '.'; }
+			}
+			// Clear stored values to avoid stale personalization
+			sessionStorage.removeItem('contactFirstName');
+			sessionStorage.removeItem('contactLastName');
+		} catch (e) { /* ignore storage errors */ }
+	})();
+</script>
+{% endblock %}

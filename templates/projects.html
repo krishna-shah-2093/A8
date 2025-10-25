@@ -1,0 +1,88 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="section">
+	<div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--space-4);">
+		<h1 class="h1">My Projects</h1>
+		<a href="{{ url_for('form') }}" class="btn" style="background: var(--primary); color: white; padding: var(--space-2) var(--space-4); border-radius: 6px; text-decoration: none; font-weight: 500;">
+			+ Add New Project
+		</a>
+	</div>
+	
+	{% if projects %}
+		<div style="background: var(--surface); border-radius: 12px; padding: var(--space-4); box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);">
+			<div style="overflow-x: auto;">
+				<table style="width: 100%; border-collapse: separate; border-spacing: 0;">
+					<thead>
+						<tr style="background: var(--bg); border-radius: 8px 8px 0 0;">
+							<th style="text-align: left; padding: var(--space-4); font-weight: 600; color: var(--text); border-bottom: 2px solid var(--primary);">Project</th>
+							<th style="text-align: left; padding: var(--space-4); font-weight: 600; color: var(--text); border-bottom: 2px solid var(--primary);">Description</th>
+							<th style="text-align: center; padding: var(--space-4); font-weight: 600; color: var(--text); border-bottom: 2px solid var(--primary);">Preview</th>
+							<th style="text-align: center; padding: var(--space-4); font-weight: 600; color: var(--text); border-bottom: 2px solid var(--primary);">Actions</th>
+						</tr>
+					</thead>
+					<tbody>
+						{% for p in projects %}
+						<tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.1); transition: background-color 0.2s ease;" 
+							onmouseover="this.style.backgroundColor='rgba(255, 255, 255, 0.05)'" 
+							onmouseout="this.style.backgroundColor='transparent'">
+							<td style="padding: var(--space-4); vertical-align: top;">
+								<div style="font-weight: 600; font-size: 1.1em; color: var(--text); margin-bottom: var(--space-1);">
+									{{ p.title }}
+								</div>
+								<!-- <div style="font-size: 0.9em; color: rgba(255, 255, 255, 0.7);">
+									Project #{{ p.id }}
+								</div> -->
+							</td>
+							<td style="padding: var(--space-4); vertical-align: top; max-width: 400px;">
+								<div style="line-height: 1.6; color: var(--text);">
+									{{ p.description }}
+								</div>
+							</td>
+							<td style="padding: var(--space-4); text-align: center; vertical-align: top;">
+								{% if p.image_file_name %}
+									<div style="display: inline-block; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);">
+										<img src="{{ url_for('static', filename='images/' + p.image_file_name) }}" 
+											 alt="{{ p.title }}" 
+											 style="width: 200px; height: 150px; object-fit: cover; display: block;" 
+											 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+										<div style="display: none; width: 200px; height: 150px; background: var(--bg); color: var(--text-muted); align-items: center; justify-content: center; font-style: italic; border-radius: 8px;">
+											No image available
+										</div>
+									</div>
+								{% else %}
+									<div style="width: 200px; height: 150px; background: var(--bg); color: var(--text-muted); display: flex; align-items: center; justify-content: center; font-style: italic; border-radius: 8px; margin: 0 auto;">
+										No image available
+									</div>
+								{% endif %}
+							</td>
+							<td style="padding: var(--space-4); text-align: center; vertical-align: top;">
+								<form method="POST" action="{{ url_for('delete_project', project_id=p.id) }}" 
+									  style="display: inline-block; margin: 0;" 
+									  onsubmit="return confirm('Are you sure you want to delete this project? This action cannot be undone.');">
+									<button type="submit" 
+											style="background: #dc2626; color: white; border: none; padding: var(--space-2) var(--space-3); border-radius: 6px; cursor: pointer; font-size: 0.9em; font-weight: 500; transition: background-color 0.2s ease;"
+											onmouseover="this.style.backgroundColor='#b91c1c'" 
+											onmouseout="this.style.backgroundColor='#dc2626'">
+										🗑️ Delete
+									</button>
+								</form>
+							</td>
+						</tr>
+						{% endfor %}
+					</tbody>
+				</table>
+			</div>
+		</div>
+	{% else %}
+		<div style="text-align: center; padding: var(--space-8); background: var(--surface); border-radius: 12px; border: 2px dashed rgba(255, 255, 255, 0.3);">
+			<div style="font-size: 3em; margin-bottom: var(--space-4); opacity: 0.5;">📁</div>
+			<h3 style="color: var(--text); margin-bottom: var(--space-3);">No projects yet</h3>
+			<p style="color: var(--text-muted); margin-bottom: var(--space-4);">Start building your portfolio by adding your first project!</p>
+			<a href="{{ url_for('form') }}" class="btn" style="background: var(--primary); color: white; padding: var(--space-3) var(--space-6); border-radius: 8px; text-decoration: none; font-weight: 500;">
+				+ Add Your First Project
+			</a>
+		</div>
+	{% endif %}
+</section>
+{% endblock %}

@@ -1,0 +1,125 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!-- Accessibility checklist: one h1, meaningful link/button text, img alt, ≥4.5:1 contrast, visible focus -->
+<section class="main-hero section">
+	<h1 class="h1">About Krishna K. Shah</h1>
+	<p class="lead" style="margin-top: var(--space-3);">
+		MSIS student at Indiana University Kelley — blending technology, design, and strategy to create impact.
+	</p>
+	<p style="margin-top: var(--space-4);">
+		<a class="btn" href="{{ url_for('resume') }}" aria-label="View Resume">View Resume</a>
+	</p>
+</section>
+
+<section class="section" aria-labelledby="bio-heading">
+	<h2 id="bio-heading" class="h2">Bio</h2>
+	<div class="grid grid--2" style="margin-top: var(--space-4); align-items: start;">
+		<div>
+			<img src="{{ url_for('static', filename='images/Headshot.jpg') }}" alt="Headshot of Krishna" loading="lazy" class="rounded" />
+		</div>
+		<div>
+			<p>
+				Hi, I'm Krishna. I'm from Ahmedabad, India, now pursuing my MSIS at IU Kelley after an undergrad in Computer Science & Design. I have a knack for tech, a keen attention to detail, I'm punctual, and I love to collaborate. With a foundation in computing and design—and growing business training—I'm able to see the big picture and find the sweet spot between people, business, and technology.
+			</p>
+			<p style="margin-top: var(--space-3);">
+				Outside work and school, I'm usually with friends, spending far too long cracking board games (very competitive), exploring new cafés, catching live music, or chasing sunsets at the beach. I'm always up for an adventure—call it 'experience the experience.'
+			</p>
+			<p style="margin-top: var(--space-3);">
+				<strong>Goals:</strong> Grow into a Tech Business Analyst—the connector who turns real user needs into clear requirements, aligns data with decisions, and helps teams ship the right thing. Lead cross-functional efforts where solid process and thoughtful product meet, while creating spaces where more women feel at home in tech.
+			</p>
+		</div>
+	</div>
+</section>
+
+<section class="section" aria-labelledby="courses-heading">
+	<h2 id="courses-heading" class="h2">What I'm studying</h2>
+	<div class="grid grid--2" style="margin-top: var(--space-4);">
+		<article class="card"><h3 class="h3">Enterprise Platforms (ERP)</h3></article>
+		<article class="card"><h3 class="h3">Cloud & Platform Architecture</h3></article>
+		<article class="card"><h3 class="h3">Product Management</h3></article>
+		<article class="card"><h3 class="h3">Agile, Processes & Automation</h3></article>
+		<article class="card"><h3 class="h3">IT Governance, Risk & Controls</h3></article>
+		<article class="card"><h3 class="h3">Data Analytics & Visualization</h3></article>
+		<article class="card"><h3 class="h3">Artificial Intelligence</h3></article>
+	</div>
+	<!-- <p style="margin-top: var(--space-4);"><a href="resume.html">See Full Resume →</a></p> -->
+</section>
+
+<section class="section" aria-labelledby="leadership-heading">
+	<h2 id="leadership-heading" class="h2">Leadership & highlights</h2>
+	<div class="grid grid--2" style="margin-top: var(--space-4);">
+		<article class="card">
+			<h3 class="h3">Co-Director — Women in Tech (WiT) Club @ Kelley</h3>
+			<p style="margin-top: var(--space-2);">Driving initiatives that empower women to lead and excel in STEM.</p>
+		</article>
+		<article class="card">
+			<h3 class="h3">Graduate Assistant — IT Services, IU Bloomington</h3>
+			<p style="margin-top: var(--space-2);">Supporting platform operations and student technology services.</p>
+		</article>
+		<article class="card">
+			<h3 class="h3">Former Student Convenor — Imaze'23; Women Empowerment Cell Lead</h3>
+			<p style="margin-top: var(--space-2);">Led campus events and advocacy programs with measurable engagement.</p>
+		</article>
+	</div>
+</section>
+
+<section class="section" aria-labelledby="skills-heading">
+	<h2 id="skills-heading" class="h2">Skills snapshot</h2>
+	
+	<h3 class="h3" style="margin-top: var(--space-4); margin-bottom: var(--space-3);">Technical Skills</h3>
+	<div class="grid" style="grid-template-columns: repeat(3, minmax(0, 1fr)); margin-top: var(--space-4);">
+		<article class="card"><p>Python</p></article>
+		<article class="card"><p>C/C++</p></article>
+		<article class="card"><p>Java</p></article>
+		<article class="card"><p>JavaScript</p></article>
+		<article class="card"><p>MERN</p></article>
+		<article class="card"><p>HTML/CSS</p></article>
+		<article class="card"><p>SQL</p></article>
+		<article class="card"><p>Excel</p></article>
+		<article class="card"><p>Pandas</p></article>
+		<article class="card"><p>Figma</p></article>
+		<article class="card"><p>GitHub</p></article>
+		<article class="card"><p>Agile</p></article>
+	</div>
+
+	<h3 class="h3" style="margin-top: var(--space-6); margin-bottom: var(--space-3);">Soft Skills</h3>
+	<div class="grid" style="grid-template-columns: repeat(2, minmax(0, 1fr)); margin-top: var(--space-4);">
+		<article class="card">
+			<h4 style="margin-bottom: var(--space-2); font-weight: 600;">Problem Solving</h4>
+			<p style="font-size: var(--fs-100); color: color-mix(in oklab, var(--text) 80%, white 20%);">Analytical thinking and creative solutions</p>
+		</article>
+		<article class="card">
+			<h4 style="margin-bottom: var(--space-2); font-weight: 600;">Communication & Facilitation</h4>
+			<p style="font-size: var(--fs-100); color: color-mix(in oklab, var(--text) 80%, white 20%);">Clear articulation and team coordination</p>
+		</article>
+		<article class="card">
+			<h4 style="margin-bottom: var(--space-2); font-weight: 600;">Collaboration</h4>
+			<p style="font-size: var(--fs-100); color: color-mix(in oklab, var(--text) 80%, white 20%);">Cross-functional teamwork and relationship building</p>
+		</article>
+		<article class="card">
+			<h4 style="margin-bottom: var(--space-2); font-weight: 600;">Prioritization & Follow-through</h4>
+			<p style="font-size: var(--fs-100); color: color-mix(in oklab, var(--text) 80%, white 20%);">Punctual, organized, outcome-oriented</p>
+		</article>
+		<article class="card">
+			<h4 style="margin-bottom: var(--space-2); font-weight: 600;">Empathy & Inclusion</h4>
+			<p style="font-size: var(--fs-100); color: color-mix(in oklab, var(--text) 80%, white 20%);">Understanding diverse perspectives and creating inclusive spaces</p>
+		</article>
+	</div>
+</section>
+
+<!-- <section class="section" aria-labelledby="interests-heading">
+	<h2 id="interests-heading" class="h2">Personal interests</h2>
+	<p style="margin-top: var(--space-3);">Outside work, Krishna enjoys board games, art, and exploring local cafés with friends — experiences that fuel her creative approach to problem-solving.</p>
+</section> -->
+
+<section class="section" aria-labelledby="projects-cta-heading">
+	<h2 id="projects-cta-heading" class="h2">Curious about my work?</h2>
+	<p class="lead" style="margin-top: var(--space-3);">Explore my latest projects.</p>
+	<p style="margin-top: var(--space-3);">
+		<a class="btn" href="{{ url_for('projects') }}">View Projects</a>
+	</p>
+</section>
+{% endblock %}
+
+

@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!-- Accessibility checklist: one h1, meaningful link/button text, img alt, ≥4.5:1 contrast, visible focus -->
+<section class="main-hero section">
+	<h1 class="h1">Krishna K. Shah</h1>
+	<p class="lead" style="margin-top: var(--space-3);">
+		MSIS @ Kelley School of Business — building product & platform solutions with AI, data, and design.
+	</p>
+	<!-- <div class="flex" style="margin-top: var(--space-5); flex-wrap: wrap;">
+		<a class="btn" href="projects.html" aria-describedby="cta-projects-desc">View Projects</a>
+		<a class="btn btn--secondary" href="contact.html" aria-describedby="cta-contact-desc">Get in Touch</a>
+	</div> -->
+	<!-- Helper texts improve clarity for screen reader users and sighted users -->
+	<!-- <p id="cta-projects-desc" class="helper-text" style="margin-top: var(--space-2);">Browse selected work, case studies, and experiments.</p>
+	<p id="cta-contact-desc" class="helper-text">Reach out about roles, collaborations, or questions.</p> -->
+</section>
+
+<section class="section" aria-labelledby="about-heading">
+	<h2 id="about-heading" class="h2">About</h2>
+	<p style="margin-top: var(--space-3);">
+		MSIS student at IU Kelley; Co-Director, Women in Tech(WiT). With a background in Computer Science and Design, I'm passionate about empowering women in STEM and building AI-enabled products and platforms that create impact.
+	</p>
+	<p style="margin-top: var(--space-3);"><a href="{{ url_for('about') }}">Learn more →</a></p>
+</section>
+
+<section class="section" aria-labelledby="projects-heading">
+	<h2 id="projects-heading" class="h2">Featured projects</h2>
+	<p style="margin-top: var(--space-3);">Explore my work in AI/ML, web development, IoT, and case competitions.</p>
+	<p style="margin-top: var(--space-3);"><a href="{{ url_for('projects') }}">View Projects →</a></p>
+</section>
+
+<section class="section" aria-labelledby="contact-cta-heading">
+	<h2 id="contact-cta-heading" class="h2">Let's connect</h2>
+	<p style="margin-top: var(--space-3);">Have a project or opening? Let's talk.</p>
+	<p style="margin-top: var(--space-3);">
+		<a class="btn" href="{{ url_for('contact') }}">Contact me</a>
+	</p>
+</section>
+{% endblock %}
+
+
